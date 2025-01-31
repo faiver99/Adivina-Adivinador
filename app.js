@@ -53,7 +53,11 @@ function asignarTextoElemento(elemento, texto) {
 
 function actionClick(){
     let numeroDeUsuario = document.getElementById('valorUsuario').value;
+    
+    
+    console.log(numeroSecreto);
     console.log(numeroDeUsuario);
+    console.log(numeroDeUsuario == numeroSecreto)
 }
 
 let numeroSecreto = generarNumeroSecreto();
@@ -62,7 +66,7 @@ function generarNumeroSecreto() {
     return Math.floor(Math.random()*10)+1;
 }
 
-console.log(numeroSecreto)
+
 
 asignarTextoElemento("h1", "Bienvenido")
 asignarTextoElemento("h2", "Ingrese un numero")
