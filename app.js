@@ -6,18 +6,27 @@ function asignarTextoElemento(elemento, texto) {
 
 function actionClick(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
+    console.log(numeroDeUsuario)
+    
+    if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){
+        asignarTextoElemento("p", " ⚠️ ingrese un numero primero")
 
-    if (numeroDeUsuario == numeroSecreto){
-        asignarTextoElemento("p", "Acertaste el numero");
-         
     } else {
-        if (numeroDeUsuario > numeroSecreto) {
-            asignarTextoElemento("P", "El numero es menor")
-        } else {
-            asignarTextoElemento("P", "El numero es mayor")
-        }
         
+        if (numeroDeUsuario == numeroSecreto){
+            asignarTextoElemento("p", "✅ Acertaste el numero");
+             
+        } else {
+            if (numeroDeUsuario > numeroSecreto) {
+                asignarTextoElemento("P", "El numero es menor")
+            } else {
+                asignarTextoElemento("P", "El numero es mayor")
+            }
+            
+        }
     }
+
+    
     
 }
 
