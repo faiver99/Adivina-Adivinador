@@ -1,3 +1,55 @@
+function asignarTextoElemento(elemento, texto) {
+    let elementoHtml = document.querySelector(elemento);
+    elementoHtml.innerHTML = texto;
+    return;
+}
+
+function actionClick(){
+    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
+
+    if (numeroDeUsuario == numeroSecreto){
+        asignarTextoElemento("p", "Acertaste el numero");
+         
+    } else {
+        if (numeroDeUsuario > numeroSecreto) {
+            asignarTextoElemento("P", "El numero es menor")
+        } else {
+            asignarTextoElemento("P", "El numero es mayor")
+        }
+        
+    }
+    
+}
+
+function reiniciarJuego() {
+    numeroSecreto = generarNumeroSecreto()
+    asignarTextoElemento("p", "Ingrese un numero")
+    // console.log(numeroSecreto)
+
+    function limpiarInput() {
+        document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
+    }
+    // Asignar evento al botón
+    document.getElementById('btnEnviar').addEventListener('click', function() {limpiarInput();});
+
+
+}
+
+let numeroSecreto = generarNumeroSecreto();
+// console.log(numeroSecreto)
+
+function generarNumeroSecreto() {
+    return Math.floor(Math.random()*10)+1;
+}
+
+
+
+asignarTextoElemento("h1", "Bienvenido")
+asignarTextoElemento("p", "Ingrese un numero")
+
+
+
+
 
 /*
 //Variables
@@ -38,65 +90,6 @@ while (numeroUsuario != numeroSecreto) {
     }
 }
 */
-
-
-
-
-
-
-
-function asignarTextoElemento(elemento, texto) {
-    let elementoHtml = document.querySelector(elemento);
-    elementoHtml.innerHTML = texto;
-    return;
-}
-
-function actionClick(){
-    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-
-    if (numeroDeUsuario == numeroSecreto){
-        asignarTextoElemento("p", "Acertaste el numero");
-         
-    } else {
-        if (numeroDeUsuario > numeroSecreto) {
-            asignarTextoElemento("P", "El numero ingresado es mayor")
-        } else {
-            asignarTextoElemento("P", "El numero ingresado es menor")
-        }
-        
-    }
-    
-}
-
-function reiniciarJuego() {
-    numeroSecreto = generarNumeroSecreto()
-    asignarTextoElemento("p", "Ingrese un numero")
-    // console.log(numeroSecreto)
-
-    function limpiarInput() {
-        document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
-    }
-    // Asignar evento al botón
-    document.getElementById('btnEnviar').addEventListener('click', function() {limpiarInput();});
-
-
-}
-
-let numeroSecreto = generarNumeroSecreto();
-// console.log(numeroSecreto)
-
-function generarNumeroSecreto() {
-    return Math.floor(Math.random()*10)+1;
-}
-
-
-
-asignarTextoElemento("h1", "Bienvenido")
-asignarTextoElemento("p", "Ingrese un numero")
-
-
-
-
 
 
 
