@@ -71,7 +71,7 @@ function actionClick(){
 function reiniciarJuego() {
     numeroSecreto = generarNumeroSecreto()
     asignarTextoElemento("p", "Ingrese un numero")
-    console.log(numeroSecreto)
+    // console.log(numeroSecreto)
 
     function limpiarInput() {
         document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
@@ -83,7 +83,7 @@ function reiniciarJuego() {
 }
 
 let numeroSecreto = generarNumeroSecreto();
-console.log(numeroSecreto)
+// console.log(numeroSecreto)
 
 function generarNumeroSecreto() {
     return Math.floor(Math.random()*10)+1;
