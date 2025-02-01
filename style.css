@@ -95,7 +95,7 @@ h2 {
     font-size: 40px;
 }
 
-.button1{
+.button{
     
     width: 100px;
     height: 50px;
@@ -107,13 +107,7 @@ h2 {
 
 }
 
-.button2{
-    width: 100px;
-    height: 50px;
-    margin: 40px;
-    color: #01080E;
-    background-color: red;
-    border-radius: 10px;
-    
+.button:disabled{
+    background: #898989;
 
 }

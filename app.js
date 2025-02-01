@@ -1,3 +1,5 @@
+let intentos = 0;
+
 function asignarTextoElemento(elemento, texto) {
     let elementoHtml = document.querySelector(elemento);
     elementoHtml.innerHTML = texto;
@@ -6,16 +8,15 @@ function asignarTextoElemento(elemento, texto) {
 
 function actionClick(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-    console.log(numeroDeUsuario)
-    
+      
     if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){
         asignarTextoElemento("p", " ⚠️ ingrese un numero primero")
 
     } else {
         
-        if (numeroDeUsuario == numeroSecreto){
-            asignarTextoElemento("p", "✅ Acertaste el numero");
-             
+        if (numeroDeUsuario == numeroSecreto ){
+            asignarTextoElemento("p", `✅ Acertaste el numero en ${intentos} ${(intentos === 1) ? 'intento':'intentos' }` );
+            document.getElementById('btnEnviar').removeAttribute('disabled')
         } else {
             if (numeroDeUsuario > numeroSecreto) {
                 asignarTextoElemento("P", "El numero es menor")
@@ -24,25 +25,27 @@ function actionClick(){
             }
             
         }
+        intentos ++;
+        limpiarInput();
+        // console.log(intentos)
     }
 
+    return;
     
-    
+}
+
+
+function limpiarInput() {
+    document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
 }
 
 function reiniciarJuego() {
-    numeroSecreto = generarNumeroSecreto()
-    asignarTextoElemento("p", "Ingrese un numero")
+    condicionesIniciales();
     // console.log(numeroSecreto)
-
-    function limpiarInput() {
-        document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
-    }
-    // Asignar evento al botón
-    document.getElementById('btnEnviar').addEventListener('click', function() {limpiarInput();});
-
-
+    return;
 }
+
+
 
 let numeroSecreto = generarNumeroSecreto();
 // console.log(numeroSecreto)
@@ -52,27 +55,32 @@ function generarNumeroSecreto() {
 }
 
 
+function condicionesIniciales (){
+    numeroSecreto = generarNumeroSecreto();
+    intentos = 1;
+    limpiarInput();
+    asignarTextoElemento("h1", "Bienvenido")
+    asignarTextoElemento("p", "Ingrese un numero")
+    document.querySelector('#btnEnviar').setAttribute('disabled', 'true')
+}
 
-asignarTextoElemento("h1", "Bienvenido")
-asignarTextoElemento("p", "Ingrese un numero")
-
-
+condicionesIniciales();
 
 
 
 /*
 //Variables
-let numeroMaximoPosible = 100;
-let numeroSecreto = Math.floor(Math.random()*numeroMaximoPosible)+1;
+let numeromáximoPosible = 100;
+let numeroSecreto = Math.floor(Math.random()*numeromáximoPosible)+1;
 let numeroUsuario = 0;
 let intentos = 1;
 
 //let palabraVeces = 'vez';
-let maximosIntentos = 6;
+let máximosIntentos = 6;
 
 
 while (numeroUsuario != numeroSecreto) {
-    numeroUsuario = parseInt(prompt(`Me indicas un número entre 1 y ${numeroMaximoPosible}  por favor:`));
+    numeroUsuario = parseInt(prompt(`Me indicas un número entre 1 y ${numeromáximoPosible}  por favor:`));
 
     console.log(typeof(numeroUsuario));
     if (numeroUsuario == numeroSecreto) {
@@ -90,8 +98,8 @@ while (numeroUsuario != numeroSecreto) {
         intentos++;
 
         //palabraVeces = 'veces';
-        if (intentos > maximosIntentos) {
-            alert(`Llegaste al número máximo de ${maximosIntentos} intentos`);
+        if (intentos > máximosIntentos) {
+            alert(`Llegaste al número máximo de ${máximosIntentos} intentos`);
             break;
         }
         //La condición no se cumplió
@@ -123,7 +131,7 @@ saludar("faiver")
 
 
 
-function dobel(saludo){
+function doble(saludo){
     return console.log(`¡Hola, ${saludo*saludo}!`)
 }
 
