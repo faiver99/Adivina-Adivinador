@@ -14,7 +14,7 @@ function actionClick(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
       
     if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){
-        asignarTextoElemento("p", " ⚠️ ingrese un numero primero")
+        campoRequerido();
 
     } else {
         
@@ -60,6 +60,10 @@ function generarNumeroSecreto() {
     }
 }
 
+función campoRequerido() {
+   asignarTextoElemento("#campoRequerido", "el antes de iniciar ingresa un numero" )
+  
+}
 
 function condicionesIniciales (){
     numeroSecreto = generarNumeroSecreto();
