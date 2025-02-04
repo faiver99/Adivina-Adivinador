@@ -1,8 +1,8 @@
 let intentos = 0;
 let listaNumerosSorteados = [];
 let numeroSecreto = 0;
-
-
+let numeroDeUsuario = 0;
+let numeroMaximoDeSorteos = 10;
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHtml = document.querySelector(elemento);
@@ -11,14 +11,19 @@ function asignarTextoElemento(elemento, texto) {
 }
 
 function actionClick(){
-    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-      
-    if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){
-        campoRequerido();
+    numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
+   
+    if (numeroDeUsuario == "" || isNaN(numeroDeUsuario)){
+        asignarTextoElemento("#campoRequerido", "*primero debe ingresar un numero");
+        setTimeout(() => {
+            asignarTextoElemento("#campoRequerido", "");
 
-    } else {
+        }, 3000);
         
+    } else {
+        asignarTextoElemento("#campoRequerido", "");
         if (numeroDeUsuario == numeroSecreto ){
+
             asignarTextoElemento("p", `✅ Acertaste el numero en ${intentos} ${(intentos === 1) ? 'intento':'intentos' }` );
             document.getElementById('btnEnviar').removeAttribute('disabled')
         } else {
@@ -32,10 +37,8 @@ function actionClick(){
         intentos ++;
         limpiarInput();
         // console.log(intentos)
+        return;
     }
-
-    return;
-    
 }
 
 
@@ -51,34 +54,40 @@ function reiniciarJuego() {
 
 
 function generarNumeroSecreto() {
-    let numeroSecreto = Math.floor(Math.random()*10)+1;
+    numeroSecreto = Math.floor(Math.random()*numeroMaximoDeSorteos)+1;
 
-    if (listaNumerosSorteados.includes(numeroSecreto)) {
-        return generarNumeroSecreto();
+    if (intentos == numeroMaximoDeSorteos){
+        document.getElementById("p", "Ya se sortearon todos los numeros")
+
     } else {
-        listaNumerosSorteados.push(numeroSecreto);
-    }
-}
-
-función campoRequerido() {
-   asignarTextoElemento("#campoRequerido", "el antes de iniciar ingresa un numero" )
-  
+        if (listaNumerosSorteados.includes(numeroSecreto)) {
+            return generarNumeroSecreto();
+            console.log(listaNumerosSorteados);
+        } else {
+            listaNumerosSorteados.push(numeroSecreto);
+            return numeroSecreto;
+        }
+    }  
 }
 
 function condicionesIniciales (){
-    numeroSecreto = generarNumeroSecreto();
     intentos = 1;
     limpiarInput();
+    generarNumeroSecreto();
     asignarTextoElemento("h1", "Bienvenido")
     asignarTextoElemento("p", "Ingrese un numero")
     document.querySelector('#btnEnviar').setAttribute('disabled', 'true')
+    console.log(numeroSecreto)
 }
 
 condicionesIniciales();
 
 
 
+// if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){
+//     asignarTextoElemento("p", " ⚠️ ingrese un numero primero")
 
+// } else {
 
 
 /*
