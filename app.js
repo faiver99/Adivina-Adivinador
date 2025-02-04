@@ -15,10 +15,10 @@ function actionClick(){
    
     if (numeroDeUsuario == "" || isNaN(numeroDeUsuario)){
         asignarTextoElemento("#campoRequerido", "*primero debe ingresar un numero");
-        // setTimeout(() => {
-        //     asignarTextoElemento("#campoRequerido", "");
+        setTimeout(() => {
+            asignarTextoElemento("#campoRequerido", "");
 
-        // }, 3000);
+        }, 3000);
         
     } else {
         asignarTextoElemento("#campoRequerido", "");
@@ -77,7 +77,7 @@ function condicionesIniciales (){
     asignarTextoElemento("h1", "Bienvenido")
     asignarTextoElemento("p", "Ingrese un numero")
     document.querySelector('#btnEnviar').setAttribute('disabled', 'true')
-    console.log(numeroSecreto)
+
 }
 
 condicionesIniciales();
