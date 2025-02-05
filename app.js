@@ -1,4 +1,3 @@
-let intentos = 0;
 let listaNumerosSorteados = [];
 let numeroSecreto = 0;
 let numeroDeUsuario = 0;
@@ -19,18 +18,18 @@ function actionClick(){
             asignarTextoElemento("#campoRequerido", "");
 
         }, 3000);
-        turboconsle.log(numeroDeUsuario)
+        
     } else {
         asignarTextoElemento("#campoRequerido", "");
         if (numeroDeUsuario == numeroSecreto ){
 
-            asignarTextoElemento("p", `✅ Acertaste el numero en ${intentos} ${(intentos === 1) ? 'intento':'intentos' }` );
+            asignarTextoElemento("#text", `✅ Acertaste el numero en ${intentos} ${(intentos === 1) ? 'intento':'intentos' }` );
             document.getElementById('btnEnviar').removeAttribute('disabled')
         } else {
             if (numeroDeUsuario > numeroSecreto) {
-                asignarTextoElemento("P", "El numero es menor")
+                asignarTextoElemento("#text", "El numero es menor")
             } else {
-                asignarTextoElemento("P", "El numero es mayor")
+                asignarTextoElemento("#text", "El numero es mayor")
             }
             
         }
@@ -42,25 +41,14 @@ function actionClick(){
 }
 
 
-
-function limpiarInput() {
-    document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
-}
-
-function reiniciarJuego() {
-    condicionesIniciales();
-    // console.log(numeroSecreto)
-    return;
-}
-
-
 function generarNumeroSecreto() {
     numeroSecreto = Math.floor(Math.random()*numeroMaximoDeSorteos)+1;
-    // console.log(numeroSecreto);
-    // console.log(listaNumerosSorteados)
+    console.log(numeroSecreto);
+    console.log(listaNumerosSorteados)
 
-    if (intentos == numeroMaximoDeSorteos){
-        document.getElementById("p", "Ya se sortearon todos los numeros")
+    if (listaNumerosSorteados.length == numeroMaximoDeSorteos){
+        asignarTextoElemento("#text", "Ya se sortearon todos los numeros");
+        
         
     } else {
         
@@ -77,17 +65,31 @@ function generarNumeroSecreto() {
     
 }
 
+function limpiarInput() {
+    document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
+}
+
 function condicionesIniciales (){
     intentos = 1;
+    numeroSecreto = generarNumeroSecreto();
     limpiarInput();
-    generarNumeroSecreto();
     asignarTextoElemento("h1", "Bienvenido")
-    asignarTextoElemento("p", "Ingrese un numero entre 1 y 10")
+    if (listaNumerosSorteados.length != numeroMaximoDeSorteos){
+        asignarTextoElemento("#text", "Ingrese un numero entre 1 y 10")
+    }
+    
+}
+
+function reiniciarJuego() {
+    limpiarInput();
+    condicionesIniciales();
     document.querySelector('#btnEnviar').setAttribute('disabled', 'true')
+    return;
 
 }
 
 condicionesIniciales();
+
 
 
 
