@@ -43,8 +43,8 @@ function actionClick(){
 
 function generarNumeroSecreto() {
     numeroSecreto = Math.floor(Math.random()*numeroMaximoDeSorteos)+1;
-    console.log(numeroSecreto);
-    console.log(listaNumerosSorteados)
+    // console.log(numeroSecreto);
+    // console.log(listaNumerosSorteados)
 
     if (listaNumerosSorteados.length == numeroMaximoDeSorteos){
         asignarTextoElemento("#text", "Ya se sortearon todos los numeros");
