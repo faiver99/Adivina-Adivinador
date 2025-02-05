@@ -82,7 +82,7 @@ function condicionesIniciales (){
     limpiarInput();
     generarNumeroSecreto();
     asignarTextoElemento("h1", "Bienvenido")
-    asignarTextoElemento("p", "Ingrese un numero")
+    asignarTextoElemento("p", "Ingrese un numero entre 1 y 10")
     document.querySelector('#btnEnviar').setAttribute('disabled', 'true')
 
 }
