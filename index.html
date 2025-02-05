@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
         rel="stylesheet">
@@ -24,13 +25,16 @@
                 <img src="./img/trophy.png" alt="Icono de trofeo" />
                 <button class="butt"></button>
                 <button class="unir"></button>
-                 <div class="container__texto">
+                <div class="container__texto">
                     <h1></h1>
                     <p></p>
                     <input type="number" id="valorUsuario" max="10"  class="campo" required>
                     <p id="campoRequerido"></p>
-                    <button onclick="actionClick()" class="button">Verificar Intento</button>
-                    <button onclick="reiniciarJuego()" class="button" id="btnEnviar" disabled>Nuevo Juego</button>
+                    <div class="divBotton">
+                        <button onclick="actionClick()" class="button">Verificar Intento</button>
+                        <button onclick="reiniciarJuego()" class="button" id="btnEnviar" disabled>Nuevo Juego</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

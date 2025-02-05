@@ -19,7 +19,7 @@ function actionClick(){
             asignarTextoElemento("#campoRequerido", "");
 
         }, 3000);
-        
+        turboconsle.log(numeroDeUsuario)
     } else {
         asignarTextoElemento("#campoRequerido", "");
         if (numeroDeUsuario == numeroSecreto ){
@@ -42,6 +42,7 @@ function actionClick(){
 }
 
 
+
 function limpiarInput() {
     document.getElementById('valorUsuario').value = ''; // Limpiar el campo de entrada
 }
@@ -55,19 +56,25 @@ function reiniciarJuego() {
 
 function generarNumeroSecreto() {
     numeroSecreto = Math.floor(Math.random()*numeroMaximoDeSorteos)+1;
+    console.log(numeroSecreto);
+    console.log(listaNumerosSorteados)
 
     if (intentos == numeroMaximoDeSorteos){
         document.getElementById("p", "Ya se sortearon todos los numeros")
 
     } else {
+        
         if (listaNumerosSorteados.includes(numeroSecreto)) {
             return generarNumeroSecreto();
-            console.log(listaNumerosSorteados);
+            
         } else {
+           
             listaNumerosSorteados.push(numeroSecreto);
             return numeroSecreto;
+            
         }
     }  
+    
 }
 
 function condicionesIniciales (){
@@ -82,6 +89,35 @@ function condicionesIniciales (){
 
 condicionesIniciales();
 
+
+
+// let listaNumerica = [1,2,3,4,5,6,7,8,9]
+
+// function  sumaDeLista (listaNumerica){
+//     for (let i=0; i <= listaNumerica.length ; i++ ) {
+//         suma = listaNumerica[i]
+//         suma += listaNumerica;
+//         return
+//     }
+// }
+
+// sumaDeLista();
+
+// for(var i = 0; i <= numeros.length; i++){
+//     numero = numeros[i];
+//     suma += numero;
+// }
+
+
+// function calcularPromedio(lista) {
+//     if (lista.length === 0) return 0; // Evitar división por cero
+//     let suma = lista.reduce((acumulador, numero) => acumulador + numero, 0);
+//     return suma / lista.length;
+// }
+
+// // Ejemplo de uso:
+// let numeros = [10, 20, 30, 40, 50];
+// console.log(calcularPromedio(numeros)); // Output: 30
 
 
 // if (numeroDeUsuario === "" || isNaN(numeroDeUsuario)){

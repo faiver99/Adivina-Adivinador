@@ -52,24 +52,7 @@ body::before {
     padding: 20px;
 }
 
-.container__boton {
-    border-radius: 16px;
-    background: #1875E8;
-    padding: 16px 24px;
-    width: 100%;
-    font-size: 24px;
-    font-weight: 700;
-    border: none;
-    margin-top: 16px;
-}
 
-.container__texto {
-    margin: 16px 0 16px 0;
-}
-
-.container__texto-azul {
-    color: #1875E8;
-}
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
@@ -97,7 +80,7 @@ h2 {
 
 .button{
     
-    width: 100px;
+    width: 2000px;
     height: 50px;
     margin: 40px;
     color: #01080E;
@@ -116,4 +99,32 @@ h2 {
     font-style: italic;
     color: rgb(255, 255, 255);
     
+}
+
+
+.container__contenido {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.divBotton {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre botones */
+    padding: 5px;
+}
+
+
+/* * Responsivo: En pantallas pequeñas, los botones se apilan */ 
+@media (max-width: 480px) {
+    .divBotton {
+        flex-direction: column;
+        align-items: center;
+        .button{
+            width: 250px;
+        }
+    
+
+    }
 }
