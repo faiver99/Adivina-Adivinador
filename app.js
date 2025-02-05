@@ -61,7 +61,7 @@ function generarNumeroSecreto() {
 
     if (intentos == numeroMaximoDeSorteos){
         document.getElementById("p", "Ya se sortearon todos los numeros")
-
+        
     } else {
         
         if (listaNumerosSorteados.includes(numeroSecreto)) {

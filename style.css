@@ -128,3 +128,14 @@ h2 {
 
     }
 }
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+    appearance: textfield; /* Para navegadores modernos */
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Para Chrome, Safari, Edge y Opera */
+    margin: 0;
+}
+
