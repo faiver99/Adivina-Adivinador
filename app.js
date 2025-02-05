@@ -87,7 +87,10 @@ function reiniciarJuego() {
 
 condicionesIniciales();
 
-
+function estimacion(cambiioLargo) {
+    let camino = document.getElementById().value;
+    
+}
 
 
 // let listaNumerica = [1,2,3,4,5,6,7,8,9]
