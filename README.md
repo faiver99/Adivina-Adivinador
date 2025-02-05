@@ -4,4 +4,4 @@ no es solo seguir un curso, sino que tambien hay que poner en practica lo que ap
 ser desde un principio creando para aprender en vez de aprender para crear.
 
 Comenzare con este proyecto esta basiquito pero es muy importante para aprender como manerjar las funciones y como con estas manejar
-el DOOM
+el DOM
