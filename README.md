@@ -5,3 +5,5 @@ ser desde un principio creando para aprender en vez de aprender para crear.
 
 Comenzare con este proyecto esta basiquito pero es muy importante para aprender como manerjar las funciones y como con estas manejar
 el DOM.
+
+https://we.tl/t-x6l0AK4w8j
